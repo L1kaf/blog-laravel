@@ -12,6 +12,7 @@ setup:
 	composer install
 	php artisan key:generate
 	php artisan migrate
+	npm install && npm run build
 
 lint:
 	composer exec --verbose phpcs -- --standard=PSR12 app routes tests
