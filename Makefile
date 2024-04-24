@@ -11,6 +11,7 @@ setup:
 	cp -n .env.example .env || true
 	composer install
 	php artisan key:generate
+    touch database/database.sqlite
 	php artisan migrate
 	npm install && npm run build
 
