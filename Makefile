@@ -23,3 +23,6 @@ lint-fix:
 
 test:
 	php artisan test
+
+test-coverage:
+	XDEBUG_MODE=coverage composer exec --verbose phpunit tests -- --coverage-clover build/logs/clover.xml
