@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Http\UploadedFile;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -19,8 +20,10 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'content' => $this->faker->word(),
+            'content' => $this->faker->text(),
             'category_id' => Category::factory(),
+            'preview_image' => UploadedFile::fake()->image('preview_image.jpg'),
+            'main_image'  => UploadedFile::fake()->image('main_image.jpg'),
         ];
     }
 }
