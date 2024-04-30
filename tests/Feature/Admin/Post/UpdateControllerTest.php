@@ -23,8 +23,8 @@ class UpdateControllerTest extends TestCase
     {
         $response = $this->patch(route('admin.post.update', ['post' => $this->post->id]), [
             'title' => $this->updatePost->title,
-            'content' => $this->post->content,
-            'category_id' => $this->post->category_id,
+            'content' => $this->updatePost->content,
+            'category_id' => $this->updatePost->category_id,
         ]);
 
         $response->assertSessionHasNoErrors();
