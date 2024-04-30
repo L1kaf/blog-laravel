@@ -33,5 +33,6 @@ class UpdateControllerTest extends TestCase
             'content' => $this->updatePost->content,
             'category_id' => $this->updatePost->category_id,
             ]);
+        $response->assertRedirect(route('admin.post.show', ['post' => $this->post->id]));
     }
 }

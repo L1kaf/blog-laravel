@@ -36,5 +36,6 @@ class StoreControllerTest extends TestCase
             'preview_image' => $this->post->preview_image,
             'main_image' => $this->post->main_image,
         ]);
+        $response->assertRedirect(route('admin.post.index'));
     }
 }
