@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Admin\User;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\User;
 use Tests\TestCase;
@@ -9,6 +10,7 @@ use Tests\TestCase;
 class StoreControllerTest extends TestCase
 {
     use RefreshDatabase;
+
 
     private User $user;
 
@@ -25,7 +27,6 @@ class StoreControllerTest extends TestCase
             'email' => $this->user->email,
             'password' => $this->user->password,
         ]);
-
 
         $this->assertDatabaseHas('users', [
             'name' => $this->user->name,
