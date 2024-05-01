@@ -16,8 +16,8 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
 
-    private const ROLE_ADMIN = 0;
-    private const ROLE_READER = 1;
+    public const ROLE_ADMIN = 0;
+    public const ROLE_READER = 1;
 
     public static function getRoles()
     {
