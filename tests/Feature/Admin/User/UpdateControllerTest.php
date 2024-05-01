@@ -15,13 +15,13 @@ class UpdateControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = User::factory()->create();
+        $this->user = User::factory()->create(['role' => USER::ROLE_ADMIN]);
         $this->updateUser = User::factory()->create();
     }
 
     public function testInvoke()
     {
-        $response = $this->patch(route('admin.user.update', ['user' => $this->user->id]), [
+        $response = $this->actingAs($this->user)->patch(route('admin.user.update', ['user' => $this->user->id]), [
             'name' => $this->updateUser->name,
             'email' => $this->updateUser->email,
             'password' => $this->updateUser->password,

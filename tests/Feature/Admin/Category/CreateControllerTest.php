@@ -2,13 +2,21 @@
 
 namespace Tests\Feature\Admin\Category;
 
+use App\Models\User;
 use Tests\TestCase;
 
 class CreateControllerTest extends TestCase
 {
+    private User $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->user = User::factory()->create(['role' => USER::ROLE_ADMIN]);
+    }
     public function testInvoke()
     {
-        $response = $this->get(route('admin.category.create'));
+        $response = $this->actingAs($this->user)->get(route('admin.category.create'));
 
         $response->assertOk();
     }
