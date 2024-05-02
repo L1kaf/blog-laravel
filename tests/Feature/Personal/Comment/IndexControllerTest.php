@@ -3,10 +3,13 @@
 namespace Tests\Feature\Personal\Comment;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class IndexControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     private User $user;
 
     public function setUp(): void
