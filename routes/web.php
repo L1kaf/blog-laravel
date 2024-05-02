@@ -19,6 +19,21 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 });
 
 Route::group(
+    ['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => 'auth'],
+    function () {
+        Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
+            Route::get('/', 'IndexController')->name('personal.main.index');
+        });
+        Route::group(['namespace' => 'Liked', 'prefix' => 'likeds'], function () {
+            Route::get('/', 'IndexController')->name('personal.liked.index');
+        });
+        Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+            Route::get('/', 'IndexController')->name('personal.comment.index');
+        });
+    }
+);
+
+Route::group(
     ['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']],
     function () {
         Route::group(['namespace' => 'Main'], function () {
