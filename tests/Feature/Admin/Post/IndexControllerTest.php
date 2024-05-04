@@ -19,7 +19,7 @@ class IndexControllerTest extends TestCase
     }
     public function testInvoke()
     {
-        $response = $this->actingAs($this->user)->get(route('admin.tag.index'));
+        $response = $this->actingAs($this->user)->get(route('admin.post.index'));
 
         $response->assertStatus(200);
     }

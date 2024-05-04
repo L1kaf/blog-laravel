@@ -20,7 +20,7 @@ class CreateControllerTest extends TestCase
 
     public function testInvoke()
     {
-        $response = $this->actingAs($this->user)->get(route('admin.tag.create'));
+        $response = $this->actingAs($this->user)->get(route('admin.post.create'));
 
         $response->assertOk();
     }

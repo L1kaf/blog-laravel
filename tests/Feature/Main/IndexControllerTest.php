@@ -14,6 +14,6 @@ class IndexControllerTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        $response->assertRedirect(route('post.index'));
     }
 }
